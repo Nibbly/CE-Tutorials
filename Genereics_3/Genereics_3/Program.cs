@@ -10,8 +10,8 @@ namespace Genereics_3
     {
         static void Main(string[] args)
         {
-            var res = new Result<int> { Success = false, Data = 100 };
-            var res2 = new Result<string>{ Success = true, Data = "John" };
+            var res = new Result<int, string> { Success = false, Data = 100, Data2 = "Bob" };
+            var res2 = new Result<string, bool> { Success = true, Data = "John", Data2 = true };
 
             Print(res);
             Print(res2);
@@ -19,15 +19,16 @@ namespace Genereics_3
             Console.ReadKey();
         }
 
-        public static void Print<T>(Result<T> res)
+        public static void Print<T, U>(Result<T, U> res)
         {
-            Console.WriteLine("Success: {0}\tData: {1}", res.Success, res.Data);
+            Console.WriteLine("Success: {0}\tData: {1}\tData2: {2}", res.Success, res.Data, res.Data2);
         }
     }
 
-    public class Result<T>
+    public class Result<T, U>
     {
         public bool Success { get; set; }
         public T Data { get; set; }
+        public U Data2 { get; set; }
     }
 }
