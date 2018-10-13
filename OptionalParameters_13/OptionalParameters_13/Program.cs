@@ -10,7 +10,7 @@ namespace OptionalParameters_13
     {
         static void Main(string[] args)
         {
-            PrintData("John");
+            PrintData("John", age: 77);
 
             Console.ReadKey();
         }
