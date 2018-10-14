@@ -15,6 +15,10 @@ namespace TPL_14
             var t2 = Task.Factory.StartNew(() => DoSomething(2, 3000)).ContinueWith((prevTask) => DoSomethingElse(2, 3000));
             var t3 = Task.Factory.StartNew(() => DoSomething(3, 1000)).ContinueWith((prevTask) => DoSomethingElse(3, 2700));
 
+            var list = new List<Task> { t3 };
+
+            Task.WaitAll(list.ToArray());
+
             Console.WriteLine("Press key to continue");
             Console.ReadKey();
         }
