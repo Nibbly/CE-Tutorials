@@ -11,13 +11,9 @@ namespace TPL_14
     {
         static void Main(string[] args)
         {
-            var t1 = new Task(() => DoSomething(1, 2000));
-            t1.Start();
-            var t2 = new Task(() => DoSomething(2, 1000));
-            t2.Start();
-            var t3 = new Task(() => DoSomething(3, 4000));
-            t3.Start();
-
+            var t1 = Task.Factory.StartNew(() => DoSomething(1, 2000));
+            var t2 = Task.Factory.StartNew(() => DoSomething(2, 3000));
+            var t3 = Task.Factory.StartNew(() => DoSomething(3, 1000));
 
             Console.WriteLine("Press key to continue");
             Console.ReadKey();
