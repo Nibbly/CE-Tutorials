@@ -11,19 +11,12 @@ namespace TPL_14
     {
         static void Main(string[] args)
         {
-            var t1 = Task.Factory.StartNew(() => DoSomething(1, 2000));
-            var t2 = Task.Factory.StartNew(() => DoSomething(2, 3000));
-            var t3 = Task.Factory.StartNew(() => DoSomething(3, 1000));
+            var nums = new List<int> { 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20 };
 
-            var list = new List<Task> { t1, t2, t3 };
-            Task.WaitAll(list.ToArray());
+            // Parallel.ForEach / .For beendet erst seine Operationen bevor es weiter geht
+            Parallel.ForEach(nums, (i) => { Console.WriteLine("i: {0}\ti^2: {1}", i, i * i);});
 
-            for(var i = 0; i< 10; i++)
-            {
-                Console.WriteLine("Loopwork!");
-                Thread.Sleep(250);
-                Console.WriteLine("i = {0}", i);
-            }
+            Parallel.For(0, 100, (i) => Console.WriteLine(i));
 
             Console.WriteLine("Press key to continue");
             Console.ReadKey();
