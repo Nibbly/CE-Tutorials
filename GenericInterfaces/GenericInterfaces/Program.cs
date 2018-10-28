@@ -6,7 +6,10 @@ namespace GenericInterfaces
     class Program
     {
         static void Main(string[] args)
-        {
+        {   
+            // This is a comment from the test branch, which should be merged into master by now
+
+
             Product p = new Product() { ProductId = 1, ProductName = "Ball" };
             Product p2 = new Product() { ProductId = 1, ProductName = "Goal" };
             IRepository<Product, int> prep = new GenericProductServiceRepository();
